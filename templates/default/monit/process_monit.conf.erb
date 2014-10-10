@@ -1,0 +1,4 @@
+check process <%= @process %> with pidfile <%= @pidfile %>
+start program = "/etc/init.d/<%= @process %> start"
+stop program = "/etc/init.d/<%= @process %> stop"
+if 5 restarts within 5 cycles then timeout
