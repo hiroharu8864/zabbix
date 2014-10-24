@@ -19,6 +19,12 @@ group "zabbix" do
   action :create
 end
 
+group "adm" do
+  action :modify
+  members "zabbix"
+  append true
+end
+
 download_zabbix_agent_file = "#{Chef::Config[:file_cache_path]}/#{File.basename(node.zabbix_agent.source)}"
 remote_file download_zabbix_agent_file do
   source node[:zabbix_agent][:source]
