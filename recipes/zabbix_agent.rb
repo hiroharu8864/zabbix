@@ -19,10 +19,9 @@ group "zabbix" do
   action :create
 end
 
-group "adm" do
-  action :modify
-  members "zabbix"
-  append true
+# To read zabbix user
+file "/var/log/messages" do
+  mode '0644'
 end
 
 download_zabbix_agent_file = "#{Chef::Config[:file_cache_path]}/#{File.basename(node.zabbix_agent.source)}"
